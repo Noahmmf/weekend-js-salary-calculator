@@ -5,20 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee Calculator</title>
     <script defer src="script.js"></script>
-    <link rel="stylesheet" href="./css.style">
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
         <header align="center">Salary Calculator</header>
 
         <h1>Add Employee</h1>
 
-        <form onSubmit="addEmployees(event)">
-            <input id="" type="text" placeholder="First Name">
-            <input id="" type="text" placeholder="Last Name">
-            <input id="" type="text" placeholder="Employee ID">
-            <input id="" type="text"  placeholder="Job Title">
-            <input id="" type="text" placeholder="Annual Salary">
-            <button>Submit</button>
+        <form onSubmit="addEmployees(event)" id="emp-info">
+            <input id="f-name" type="text" placeholder="First Name">
+            <input id="l-name" type="text" placeholder="Last Name">
+            <input id="emp-id" type="text" placeholder="Employee ID">
+            <input id="job-title" type="text"  placeholder="Job Title">
+            <input id="salary" type="text" placeholder="Annual Salary">
+            <button id="emp-submit">Submit</button>
         </form>
 
         <table id="tableOfEmployees">

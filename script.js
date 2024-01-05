@@ -7,7 +7,9 @@ let employees = [];
 
 //function adds employee to table
 function addEmployees(event){
-    preventDefault();
+    //prevent default behaivor
+    event.preventDefault();
 
+    let onSubmit = document.getElementById('')
 
 }
