@@ -12,6 +12,7 @@ let empId = document.getElementById("emp-id");
 let jobTitle = document.getElementById("job-title");
 let annualSalary = document.getElementById("salary");
 
+
 //function adds employee to table
 function addEmployees(event){
     //prevent default behaivor
@@ -35,33 +36,37 @@ function addEmployees(event){
         return;
     }
 
+
+    
     //outline for employee object
     let employeeObject = { 
-    Name:firstName.value + " " + lastName.value,
-    empId: empId.value,
-    annualSalary: annualSalary.value}
-    
-    // when submitting info add inofrmation to global variable array employees.
-    allEmployees.push(employeeObject);
-
-     //variable for document object table
-    let tableRow = document.getElementById("tableOfEmployees");
-
-     //inserts new table information from form data. 
-    tableRow.innerHTML +=`
-    <tr class = "tableRow">
-        <td>${firstName.value + " " + lastName.value}</td>
-        <td>${empId.value}</td>
-        <td>${jobTitle.value}</td>
-        <td>${annualSalary.value}</td>
-    </tr>
-    ` 
-    //clear input forms
-    firstName.value = '';
-    lastName.value = '';
-    empId.value = '';
-    jobTitle.value = '';
-    annualSalary.value = '';
-
-    console.log(allEmployees);
-}// end function addEmployees
+        Name:firstName.value + " " + lastName.value,
+        empId: empId.value,
+        annualSalary: annualSalary.value}
+        
+        // when submitting info add inofrmation to global variable array employees.
+        allEmployees.push(employeeObject);
+        
+        //variable for document object table
+        let tableRow = document.getElementById("tableOfEmployees");
+        
+        //inserts new table information from form data. 
+        tableRow.innerHTML +=`
+        <tr class = "tableRow">
+        <td align=center>${firstName.value + " " + lastName.value}</td>
+        <td align=center id="new-emp-id">${empId.value}</td>
+        <td align=center>${jobTitle.value}</td>
+        <td align=center>${annualSalary.value}</td>
+        <td align=center> <button> </td>
+        </tr>
+        ` 
+        //clear input forms
+        firstName.value = '';
+        lastName.value = '';
+        empId.value = '';
+        jobTitle.value = '';
+        annualSalary.value = '';
+        
+        //for testing purposes to verify allEmployee variable being updated
+        console.log(allEmployees);
+    }// end function addEmployees
