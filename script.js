@@ -2,7 +2,7 @@ onReady();
 function onReady(){
     console.log('Working');
 }
-
+//holds all employee objects data information.
 let allEmployees = [];
 
 //variables for creating objects
@@ -16,7 +16,26 @@ let annualSalary = document.getElementById("salary");
 function addEmployees(event){
     //prevent default behaivor
     event.preventDefault();
-    //create an employee Object
+   
+    //if statement if form left empty
+    if(firstName.value === ''){
+        alert('Please insert First Name');
+        return;
+    }else if(lastName.value === ''){
+        alert('Please insert Last Name');
+        return;
+    } else if(empId.value === ''){
+        alert('Please insert an Employee ID number');
+        return;
+    } else if(jobTitle.value === ''){
+        alert('Please insert Job Title');
+        return;
+    } else if(annualSalary.value === ''){
+        alert('Please insert Annual Salary');
+        return;
+    }
+
+    //outline for employee object
     let employeeObject = { 
     Name:firstName.value + " " + lastName.value,
     empId: empId.value,
@@ -25,8 +44,10 @@ function addEmployees(event){
     // when submitting info add inofrmation to global variable array employees.
     allEmployees.push(employeeObject);
 
+     //variable for document object table
     let tableRow = document.getElementById("tableOfEmployees");
 
+     //inserts new table information from form data. 
     tableRow.innerHTML +=`
     <tr class = "tableRow">
         <td>${firstName.value + " " + lastName.value}</td>
@@ -38,7 +59,7 @@ function addEmployees(event){
     //clear input forms
     firstName.value = '';
     lastName.value = '';
-    empId = '';
+    empId.value = '';
     jobTitle.value = '';
     annualSalary.value = '';
 
