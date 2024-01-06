@@ -77,11 +77,13 @@ function addEmployees(event){
 
     let totalMonthlyMoney = 0;
 
+
     function calculateMonthlyTotal(arraySum){
-       
+       //loops through all employees
        for (let i = 0; i < allEmployees.length; i++){
+            //changes string to number for addition/division
            const annualSalary = parseInt(allEmployees[i].annualSalary);
-         
+            //collecting all salaries and adding to totalMonthlyMoney
            totalMonthlyMoney += annualSalary;
            
         }//end for loop
@@ -92,14 +94,22 @@ function addEmployees(event){
         //always rounds up to nearest amount.
         totalMonthlyMoney = Math.ceil(totalMonthlyMoney);
 
+       
 
-
+        // logged to console
        console.log(`Total monthly money is currently $`, totalMonthlyMoney);
 
         let updateMonthlyTotal = document.getElementById('total-monthly');
-
+        //replaces html h2 with updated total monthly costs
         updateMonthlyTotal.innerHTML = `
-        <h2 id="total-monthly">Total Monthly: $${totalMonthlyMoney}</h2>
+        <h2 id="total-monthly">Total Monthly: <strong id="bold">$${totalMonthlyMoney}</strong></h2>
         `
-        
     }//end funciton calculateMonthlyTotal
+
+    function updateMonthlyTotal() {
+        if (totalMonthlyMoney > 20000) {
+            document.getElementById('bold').style.color = "red";
+        } else {
+            document.getElementById('bold').style.color = "black"; // Reset color if it's not over 20000
+        }
+    }
