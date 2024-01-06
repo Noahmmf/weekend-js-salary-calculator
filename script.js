@@ -61,12 +61,45 @@ function addEmployees(event){
         </tr>
         ` 
         //clear input forms
-        firstName.value = '';
-        lastName.value = '';
-        empId.value = '';
-        jobTitle.value = '';
-        annualSalary.value = '';
+
+        // firstName.value = '';
+        // lastName.value = '';
+        // empId.value = '';
+        // jobTitle.value = '';
+        // annualSalary.value = '';
+
+        //call function calculate
+        calculateMonthlyTotal(allEmployees);
         
         //for testing purposes to verify allEmployee variable being updated
         console.log(allEmployees);
     }// end function addEmployees
+
+    let totalMonthlyMoney = 0;
+
+    function calculateMonthlyTotal(arraySum){
+       
+       for (let i = 0; i < allEmployees.length; i++){
+           const annualSalary = parseInt(allEmployees[i].annualSalary);
+         
+           totalMonthlyMoney += annualSalary;
+           
+        }//end for loop
+
+       //divide by 12
+        totalMonthlyMoney /= 12;
+
+        //always rounds up to nearest amount.
+        totalMonthlyMoney = Math.ceil(totalMonthlyMoney);
+
+
+
+       console.log(`Total monthly money is currently $`, totalMonthlyMoney);
+
+        let updateMonthlyTotal = document.getElementById('total-monthly');
+
+        updateMonthlyTotal.innerHTML = `
+        <h2 id="total-monthly">Total Monthly: $${totalMonthlyMoney}</h2>
+        `
+        
+    }//end funciton calculateMonthlyTotal
