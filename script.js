@@ -57,16 +57,16 @@ function addEmployees(event){
         <td align=center id="new-emp-id">${empId.value}</td>
         <td align=center>${jobTitle.value}</td>
         <td align=center>${annualSalary.value}</td>
-        <td align=center> <button onClick=removeEmployeeRow(event)> </td>
+        <td align=center> <button id="delete-button" onClick=removeEmployeeRow(event)>Delete</button></td>
         </tr>
         ` 
         //clear input forms
 
-        // firstName.value = '';
-        // lastName.value = '';
-        // empId.value = '';
-        // jobTitle.value = '';
-        // annualSalary.value = '';
+        firstName.value = '';
+        lastName.value = '';
+        empId.value = '';
+        jobTitle.value = '';
+        annualSalary.value = '';
 
         //call function calculate
         calculateMonthlyTotal(allEmployees);
@@ -108,15 +108,17 @@ function addEmployees(event){
         `
     }//end funciton calculateMonthlyTotal
 
+        //function updates total monthly cost to color red if goes over 20000
     function updatedMonthlyTotal(number) {
         if (totalMonthlyMoney > 20000) {
-            document.getElementById('total-monthly').style.color = "red";
+            document.getElementById('total-monthly').style.backgroundColor = "red";
         } else {
             document.getElementById('total-monthly').style.color = "black"; // Reset color if it's not over 20000
         }
-    }
+    }//end function updatedMonthlyTotal
 
+    //function to remove employee row
     function removeEmployeeRow(event){
         let onClick= event.target
         onClick.closest('tr').remove();
-    }
+    }//end function removeEmployeeRow()
