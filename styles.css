@@ -1,9 +1,14 @@
 header {
   background-color: grey;
-  margin: none;
+  margin: auto;
   padding: 50px;
-  border: none;
   font-size: 80px;
+  height: 100%;
+  width: 100%;
+}
+
+*{
+  margin: 0;
 }
 
 h1{

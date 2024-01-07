@@ -57,7 +57,7 @@ function addEmployees(event){
         <td align=center id="new-emp-id">${empId.value}</td>
         <td align=center>${jobTitle.value}</td>
         <td align=center>${annualSalary.value}</td>
-        <td align=center> <button> </td>
+        <td align=center> <button onClick=removeEmployeeRow(event)> </td>
         </tr>
         ` 
         //clear input forms
@@ -94,6 +94,8 @@ function addEmployees(event){
         //always rounds up to nearest amount.
         totalMonthlyMoney = Math.ceil(totalMonthlyMoney);
 
+        //function called for total monthly amount over 20,000 will turn red. 
+        updatedMonthlyTotal(totalMonthlyMoney);
        
 
         // logged to console
@@ -106,10 +108,15 @@ function addEmployees(event){
         `
     }//end funciton calculateMonthlyTotal
 
-    function updateMonthlyTotal() {
+    function updatedMonthlyTotal(number) {
         if (totalMonthlyMoney > 20000) {
-            document.getElementById('bold').style.color = "red";
+            document.getElementById('total-monthly').style.color = "red";
         } else {
-            document.getElementById('bold').style.color = "black"; // Reset color if it's not over 20000
+            document.getElementById('total-monthly').style.color = "black"; // Reset color if it's not over 20000
         }
+    }
+
+    function removeEmployeeRow(event){
+        let onClick= event.target
+        onClick.closest('tr').remove();
     }
